@@ -2,40 +2,8 @@
 using System.Reflection;
 using UnityEngine;
 
-public class UserViewModel
+public class UserViewModel : ViewModelBase<UserModel>
 {
-    public bool ModelChanged;
-
-    private UserModel model;
-
-    private static Dictionary<string, FieldInfo> modelFieldsDict;
-
-    public UserModel Model { get { return model; } }
-
-    public static void Init()
-    {
-        FieldInfo[] fieldInfos = typeof(UserModel).GetFields();
-
-        modelFieldsDict = new Dictionary<string, FieldInfo>();
-
-        foreach (var fieldInfo in fieldInfos)
-        {
-            modelFieldsDict.Add(fieldInfo.Name, fieldInfo);
-        }
-    }
-
-    public void SetModelValue<T>(string fieldName, T value)
-    {
-        if (modelFieldsDict.ContainsKey(fieldName))
-        {
-            if (modelFieldsDict[fieldName].FieldType == typeof(T))
-            {
-                modelFieldsDict[fieldName].SetValue(model, value);
-                ModelChanged = true;
-            }
-        }
-    }
-
     public void CreateUser()
     {
         model = new UserModel()
@@ -56,20 +24,5 @@ public class UserViewModel
         model = JsonUtility.FromJson<UserModel>(json.text);
 
         NotifyModelChanged();
-    }
-
-    public void Subscribe(SubscriptionHandler.ModelUpdatedDelegate func)
-    {
-        SubscriptionHandler.Instance.Subscribe(GetHashCode(), func);
-    }
-
-    public void Unsubscribe(SubscriptionHandler.ModelUpdatedDelegate func)
-    {
-        SubscriptionHandler.Instance.Unsubscribe(GetHashCode(), func);
-    }
-
-    public void NotifyModelChanged()
-    {
-        SubscriptionHandler.Instance.NotifyModelChanged(GetHashCode());
     }
 }

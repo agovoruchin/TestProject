@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public class UserModel
+public class UserModel : IModel
 {
     public string Name;
     public int MaxEnergy;

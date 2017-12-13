@@ -3,6 +3,5 @@
     protected override void OnUserModelUpdated()
     {
         text.text = string.Format("Gold: {0}", viewModel.Model.Gold);
-        UnityEngine.Debug.Log("GoldTextView Updated");
     }
 }
