@@ -32,4 +32,16 @@ public class UserViewModel : ViewModelBase
 
         NotifyModelChanged();
     }
+
+    public void AddGold(int amount)
+    {
+        if (Model.Energy == 0)
+            return;
+
+        --Model.Energy;
+
+        SetModelValue("Gold", Model.Gold + amount);
+
+        ModelChanged = true;
+    }
 }

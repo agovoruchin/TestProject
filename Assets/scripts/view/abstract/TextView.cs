@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-public abstract class TextView : BaseView
+public abstract class TextView<T> : BaseView<T> where T: ViewModelBase, new()
 {
     protected Text text;
 
@@ -11,9 +11,14 @@ public abstract class TextView : BaseView
         viewModel.Subscribe(OnUserModelUpdated);
     }
 
-    protected virtual void OnDestroy()
+    protected override void RemoveSubscriptions()
     {
         viewModel.Unsubscribe(OnUserModelUpdated);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        RemoveSubscriptions();
     }
 
     protected virtual void OnUserModelUpdated()

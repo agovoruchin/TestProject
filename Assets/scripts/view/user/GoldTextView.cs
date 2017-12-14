@@ -1,4 +1,4 @@
-﻿public class GoldTextView : TextView 
+﻿public class GoldTextView : TextView<UserViewModel>
 {
     protected override void OnUserModelUpdated()
     {

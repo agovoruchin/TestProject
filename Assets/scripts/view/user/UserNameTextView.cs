@@ -1,4 +1,4 @@
-﻿public class NameTextView : TextView 
+﻿public class UserNameTextView : TextView<UserViewModel>
 {
     protected override void OnUserModelUpdated()
     {

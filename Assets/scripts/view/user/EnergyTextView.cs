@@ -1,4 +1,4 @@
-﻿public class EnergyTextView : TextView 
+﻿public class EnergyTextView : TextView<UserViewModel>
 {
     protected override void OnUserModelUpdated()
     {

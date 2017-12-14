@@ -1,4 +1,4 @@
-﻿public class CreateButtonView : ButtonView 
+﻿public class CreateButtonView : ButtonView<UserViewModel>
 {
     protected override void OnClicked()
     {

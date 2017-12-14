@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class AddGoldButtonView : ButtonView 
+public class AddGoldButtonView : ButtonView<UserViewModel>
 {
     [SerializeField]
     private int amount;
 
     protected override void OnClicked()
     {
-        viewModel.SetModelValue("Gold", viewModel.Model.Gold + amount);
+        viewModel.AddGold(amount);
     }
 }

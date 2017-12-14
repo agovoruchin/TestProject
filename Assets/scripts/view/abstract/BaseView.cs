@@ -1,25 +1,33 @@
 ﻿using UnityEngine;
 
-public abstract class BaseView : MonoBehaviour
+public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
 {
-    protected CanvasGroup canvasGroup;
+    protected FactoryBase<T> factory;
 
-    protected UserViewModel viewModel;
-
-    private UserViewModelFactory factory;
+    protected T viewModel;
 
     private void Start()
     {
-        factory = GetComponentInParent<UserViewModelFactory>();
+        factory = GetComponentInParent<FactoryBase<T>>();
 
-        canvasGroup = GetComponentInParent<CanvasGroup>();
-
-        viewModel = factory.Get(canvasGroup.GetInstanceID());
+        viewModel = factory.Get(transform.parent.GetInstanceID());
 
         Init();
     }
 
+    public void SetViewModel(int id)
+    {
+        viewModel = factory.Get(id);
+        RemoveSubscriptions();
+        Init();
+        viewModel.NotifyModelChanged();
+    }
+
     protected virtual void Init()
+    {
+    }
+
+    protected virtual void RemoveSubscriptions()
     {
     }
 }
