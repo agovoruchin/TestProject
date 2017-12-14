@@ -122,9 +122,8 @@ GameObject:
   - component: {fileID: 54342407}
   - component: {fileID: 54342409}
   - component: {fileID: 54342408}
-  - component: {fileID: 54342410}
   m_Layer: 5
-  m_Name: UserDataPanelB
+  m_Name: UserDataPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,17 +188,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 54342406}
---- !u!225 &54342410
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 54342406}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &152333273
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145209d265fb508469f15c6d6bb93c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 1
+  viewModelID: 0
 --- !u!114 &152333276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d66f9a59ce76845b105153575d0181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!114 &202294869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,6 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48006c023325fe445b95a16351b523f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!114 &210487536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c405d630e2dc042a08a424fdf2bd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!1 &423986431
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +830,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 423986431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b9cd63f4dc1515488dfa7f8c093c581, type: 3}
+  m_Script: {fileID: 11500000, guid: eaa0f4bf55f48834c8c46183eee6fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &423986437
@@ -845,7 +841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 423986431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaa0f4bf55f48834c8c46183eee6fd71, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b9cd63f4dc1515488dfa7f8c093c581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &430937407
@@ -1168,6 +1164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b695002d8cca05f4b8a49fc5cb5b142c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!114 &791255725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,6 +1425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b1e57d69d50dc459c1e8ac8a31b03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!1 &989107577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4c1ca6d5a86fb43bca0f2222de8ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!1 &1174910592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c895826b5b8f4df48b9eb0d7423db149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!1 &1688749735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +1997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab297d71a7e23f743a0e08231903af52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!1 &1728493649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2718d197d3fcbbc4bb5e5e2eb7c01045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
 --- !u!114 &1863644018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2243,9 +2251,8 @@ GameObject:
   - component: {fileID: 1934758144}
   - component: {fileID: 1934758146}
   - component: {fileID: 1934758145}
-  - component: {fileID: 1934758147}
   m_Layer: 5
-  m_Name: EnemyDataPanelA
+  m_Name: EnemyDataPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2307,17 +2314,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934758143}
---- !u!225 &1934758147
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934758143}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1981638168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,4 +2437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736a7f5f9b7e4f140a68a8ff525b6c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferences: 0
+  viewModelID: 0
   amount: 100

@@ -1,7 +1,19 @@
 ﻿using UnityEngine;
 
+public enum ViewModelPreferences
+{
+    Current = 0,
+    SpecificID = 1
+}
+
 public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
 {
+    [SerializeField]
+    private ViewModelPreferences preferences;
+
+    [SerializeField]
+    private int viewModelID;
+
     protected FactoryBase<T> factory;
 
     protected T viewModel;
@@ -10,7 +22,7 @@ public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
     {
         factory = GetComponentInParent<FactoryBase<T>>();
 
-        viewModel = factory.Get(transform.parent.GetInstanceID());
+        viewModel = factory.Get(0);
 
         Init();
     }
