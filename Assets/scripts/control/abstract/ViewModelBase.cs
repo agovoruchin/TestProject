@@ -1,20 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public abstract class ViewModelBase<M> where M : IModel, new()
+public abstract class ViewModelBase
 {
     public bool ModelChanged;
 
-    protected M model;
+    protected IModel model;
 
     protected static Dictionary<string, FieldInfo> modelFieldsDict;
 
-    public M Model { get { return model; } }
+    public Type ModelType { get { return model.GetType(); } }
 
-    public static void Init()
+    public static void Init(Type modelType)
     {
-        FieldInfo[] fieldInfos = typeof(M).GetFields();
+        FieldInfo[] fieldInfos = modelType.GetFields();
 
         modelFieldsDict = new Dictionary<string, FieldInfo>();
 

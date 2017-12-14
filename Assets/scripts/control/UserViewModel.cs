@@ -2,8 +2,15 @@
 using System.Reflection;
 using UnityEngine;
 
-public class UserViewModel : ViewModelBase<UserModel>
+public class UserViewModel : ViewModelBase
 {
+    public UserModel Model { get { return (UserModel)model; } }
+
+    public UserViewModel()
+    {
+        model = new UserModel();
+    }
+
     public void CreateUser()
     {
         model = new UserModel()

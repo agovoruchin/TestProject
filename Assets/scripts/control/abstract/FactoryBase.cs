@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class FactoryBase<T, M> : MonoBehaviour where T : ViewModelBase<M>, new() where M : IModel, new()
+public abstract class FactoryBase<T> : MonoBehaviour where T : ViewModelBase, new()
 {
     protected Dictionary<int, T> viewModelDict;
 
     protected void Awake()
     {
         viewModelDict = new Dictionary<int, T>();
-        ViewModelBase<M>.Init();
+        ViewModelBase temp = new T();
+        ViewModelBase.Init(temp.ModelType);
     }
 
     public T Get(int id)
