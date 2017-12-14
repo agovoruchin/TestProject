@@ -10,4 +10,26 @@ public class EnemyViewModel : ViewModelBase
     {
         model = new EnemyModel();
     }
+
+    public void SpawnOrc()
+    {
+        model = new EnemyModel()
+        {
+            Name = "Orc",
+            Health = 150,
+            AttackPower = 14
+        };
+
+        NotifyModelChanged();
+    }
+
+    public void TakeDamage(int amount)
+    {
+        Model.Health -= amount;
+
+        if (Model.Health < 0)
+            Model.Health = 0;
+
+        ModelChanged = true;
+    }
 }
