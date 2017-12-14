@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TakeDamageButtonView : ButtonView<EnemyViewModel> 
+﻿public class TakeDamageButtonView : ButtonView<EnemyViewModel> 
 {
     protected override void OnClicked()
     {

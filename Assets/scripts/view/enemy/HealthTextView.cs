@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class HealthTextView : TextView<EnemyViewModel> 
+﻿public class HealthTextView : TextView<EnemyViewModel> 
 {
     protected override void OnUserModelUpdated()
     {

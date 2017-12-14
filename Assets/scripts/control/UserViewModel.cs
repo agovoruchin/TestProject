@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UserViewModel : ViewModelBase
 {
@@ -35,7 +33,7 @@ public class UserViewModel : ViewModelBase
 
     public void AddGold(int amount)
     {
-        if (Model.Energy == 0)
+        if (Model.Energy <= 0)
             return;
 
         --Model.Energy;

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyNameTextView : TextView<EnemyViewModel> 
+﻿public class EnemyNameTextView : TextView<EnemyViewModel> 
 {
     protected override void OnUserModelUpdated()
     {
