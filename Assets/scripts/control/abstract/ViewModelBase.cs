@@ -8,13 +8,11 @@ public abstract class ViewModelBase
 
     protected IModel model;
 
-    protected static Dictionary<string, FieldInfo> modelFieldsDict;
+    protected Dictionary<string, FieldInfo> modelFieldsDict;
 
-    public Type ModelType { get { return model.GetType(); } }
-
-    public static void Init(Type modelType)
+    public void Init()
     {
-        FieldInfo[] fieldInfos = modelType.GetFields();
+        FieldInfo[] fieldInfos = model.GetType().GetFields();
 
         modelFieldsDict = new Dictionary<string, FieldInfo>();
 
@@ -36,18 +34,18 @@ public abstract class ViewModelBase
         }
     }
 
-    public void Subscribe(SubscriptionHandler.ModelUpdatedDelegate func)
+    public void Subscribe(Action func)
     {
-        SubscriptionHandler.Instance.Subscribe(GetHashCode(), func);
+        ModelSubscriptionHandler.Instance.Subscribe(GetHashCode(), func);
     }
 
-    public void Unsubscribe(SubscriptionHandler.ModelUpdatedDelegate func)
+    public void Unsubscribe(Action func)
     {
-        SubscriptionHandler.Instance.Unsubscribe(GetHashCode(), func);
+        ModelSubscriptionHandler.Instance.Unsubscribe(GetHashCode(), func);
     }
 
     public void NotifyModelChanged()
     {
-        SubscriptionHandler.Instance.NotifyModelChanged(GetHashCode());
+        ModelSubscriptionHandler.Instance.NotifyModelChanged(GetHashCode());
     }
 }

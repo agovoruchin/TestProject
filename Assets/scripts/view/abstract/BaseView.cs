@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum ViewModelPreferences
 {
@@ -8,11 +9,11 @@ public enum ViewModelPreferences
 
 public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
 {
-    [SerializeField]
-    private ViewModelPreferences preferences;
+    [HideInInspector]
+    public ViewModelPreferences Preferences;
 
-    [SerializeField]
-    private int viewModelID;
+    [HideInInspector]
+    public int ViewModelID;
 
     protected FactoryBase<T> factory;
 
@@ -22,9 +23,20 @@ public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
     {
         factory = GetComponentInParent<FactoryBase<T>>();
 
-        viewModel = factory.Get(0);
+        viewModel = factory.Get(Preferences == ViewModelPreferences.Current ? 0 : ViewModelID);
+
+        if (Preferences == ViewModelPreferences.Current)
+            ViewModelSubscriptionHandler.Instance.Subscribe(typeof(T), OnViewModelChanged);
 
         Init();
+    }
+
+    private void OnDestroy()
+    {
+        if (Preferences == ViewModelPreferences.Current)
+            ViewModelSubscriptionHandler.Instance.Unsubscribe(typeof(T), OnViewModelChanged);
+
+        DoDestroy();
     }
 
     public void SetViewModel(int id)
@@ -39,7 +51,16 @@ public abstract class BaseView<T> : MonoBehaviour where T : ViewModelBase, new()
     {
     }
 
+    protected virtual void DoDestroy()
+    {
+    }
+
     protected virtual void RemoveSubscriptions()
     {
+    }
+
+    private void OnViewModelChanged(int id)
+    {
+        SetViewModel(id);
     }
 }

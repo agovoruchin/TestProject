@@ -16,7 +16,7 @@ public abstract class TextView<T> : BaseView<T> where T: ViewModelBase, new()
         viewModel.Unsubscribe(OnUserModelUpdated);
     }
 
-    protected virtual void OnDestroy()
+    protected override void DoDestroy()
     {
         RemoveSubscriptions();
     }

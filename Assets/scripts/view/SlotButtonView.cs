@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class SlotButtonView : MonoBehaviour
 {
+    [SerializeField]
+    private int id;
+
     private Button button;
 
     private BaseView<UserViewModel>[] views;
@@ -11,15 +14,10 @@ public class SlotButtonView : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClicked);
-
-        views = transform.parent.GetComponentsInChildren<BaseView<UserViewModel>>();
     }
 
     protected void OnClicked()
     {
-        foreach (var view in views)
-        {
-            view.SetViewModel(GetInstanceID());
-        }
+        ViewModelSubscriptionHandler.Instance.NotifyViewModelChanged(typeof(UserViewModel), id);
     }
 }
