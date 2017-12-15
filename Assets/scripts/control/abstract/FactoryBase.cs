@@ -5,18 +5,19 @@ public abstract class FactoryBase<T> : MonoBehaviour where T : ViewModelBase, ne
 {
     protected Dictionary<int, T> viewModelDict;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         viewModelDict = new Dictionary<int, T>();
-        ViewModelBase temp = new T();
-        ViewModelBase.Init(temp.ModelType);
     }
 
     public T Get(int id)
     {
         if (!viewModelDict.ContainsKey(id))
         {
-            viewModelDict.Add(id, new T());
+            T temp = new T();
+            temp.Init();
+
+            viewModelDict.Add(id, temp);
         }
 
         return viewModelDict[id];
